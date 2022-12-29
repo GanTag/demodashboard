@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ML Deployment Tracking Monitor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<style>
+.chart {
+    width: 100%;
+    height: 400px;
+}
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            padding: 20px;
+            background: #f1f1f1;
+            text-align: center;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .side {
+            flex: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .main {
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .side,
+            .main {
+                width: 100%;
+            }
+        }
+    </style>
+<body>
+    <div class="header">
+        <h1>USBank ML MVP Dashboard</h1>
+    </div>
+    <div class="topnav">
+        <a href="DataIngestionMonitorGraph.html">Data Ingestion Monitor</a>
+        <a href="data_alerts.html">Alerts</a>
+        <a href="logging_stats.html">Logging</a>
+        <a href="audit_logging.html">Audit Logging</a>
+        <a href="data_visualization.html">Data Visualizations</a>
+		<a href="data_monitor.html">Data Monitor</a>
+        <a href="ml_model_performance_metrics.html">ML Model Performance Metrics</a>
+        <a href="model_deployment_tracking.html">Model Deployment Tracking</a>
+        <a href="automation_tracking.html">Automation Tracking</a>
+        <a href="pipeline_tracking.html">Pipeline Tracking</a>
+    </div>
+<div class="container">
+  <h2>ML Deployment Tracking Monitor</h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Stage 1: Data Collection</h5>
+          <p class="card-text">
+            Collecting the data and storing it in the required format.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Stage 2: Data Cleaning</h5>
+          <p class="card-text">
+            Cleaning the data and preprocessing it before training the model.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Stage 3: Model Training</h5>
+          <p class="card-text">
+            Training the model on the preprocessed data.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Stage 4: Model Validation</h5>
+          <p class="card-text">
+            Validating the model using the test data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Stage 5: Model Deployment</h5>
+          <p class="card-text">
+            Deploying the model for production.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Stage 6: Model Maintenance</h5>
+          <p class="card-text">
+            Monitoring, maintaining and updating the model as needed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="chart-container">
+        
+        <div id="chart-1"></div>
+        <div id="chart-2"></div>
+        <div id="chart-3"></div>
+    </div>
+
+    <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Deployment', 'Success', 'Failure'],
+                ['Deployment 1',  50, 15],
+                ['Deployment 2',  55, 20],
+                ['Deployment 3',  40, 25],
+                ['Deployment 4',  35, 10],
+                ['Deployment 5',  25, 5]
+            ]);
+
+            var options = {
+                title: 'ML Deployment Success Rate',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Total Deployment',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Success/Failure'
+                }
+            };
+            var chart1 = new google.visualization.BarChart(document.getElementById('chart-1'));
+            chart1.draw(data, options);
+
+            var data2 = google.visualization.arrayToDataTable([
+                ['Deployment', 'Time'],
+                ['Deployment 1',  10],
+                ['Deployment 2',  20],
+                ['Deployment 3',  30],
+                ['Deployment 4',  40],
+                ['Deployment 5',  50]
+            ]);
+
+            var options2 = {
+                title: 'Time taken for each deployment',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Deployment',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Time'
+                }
+            };
+            var chart2 = new google.visualization.BarChart(document.getElementById('chart-2'));
+            chart2.draw(data2, options2);
+
+            var data3 = google.visualization.arrayToDataTable([
+                ['Deployment', 'Cost'],
+                ['Deployment 1',  50],
+                ['Deployment 2',  100],
+                ['Deployment 3',  150],
+                ['Deployment 4',  200],
+                ['Deployment 5',  250]
+            ]);
+
+            var options3 = {
+                title: 'Cost of each deployment',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Deployment',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Cost'
+                }
+            };
+            var chart3 = new google.visualization.BarChart(document.getElementById('chart-3'));
+            chart3.draw(data3, options3);
+        }
+    </script>
+</body>
+</html>

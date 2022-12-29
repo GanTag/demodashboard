@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Data Transformation Monitor</title>
+		    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+			  font-size: 17px;
+  padding: 8px;
+        }
+
+        .header {
+            padding: 20px;
+            background: #f1f1f1;
+            text-align: center;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .side {
+            flex: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .main {
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .side,
+            .main {
+                width: 100%;
+            }
+        }
+		#myData {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#myData th, #myData td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#myData tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myData tr.header, #myData tr:hover {
+  background-color: #f1f1f1;
+}
+    </style>
+	
+	</head>
+<body>
+    <div class="header">
+        <h1>USBank ML MVP Dashboard</h1>
+    </div>
+    <div class="topnav">
+        <a href="DataIngestionMonitorGraph.html">Data Ingestion Monitor</a>
+        <a href="data_alerts.html">Alerts</a>
+        <a href="logging_stats.html">Logging</a>
+        <a href="audit_logging.html">Audit Logging</a>
+        <a href="data_visualization.html">Data Visualizations</a>
+		<a href="data_monitor.html">Data Monitor</a>
+        <a href="ml_model_performance_metrics.html">ML Model Performance Metrics</a>
+        <a href="model_deployment_tracking.html">Model Deployment Tracking</a>
+        <a href="automation_tracking.html">Automation Tracking</a>
+        <a href="pipeline_tracking.html">Pipeline Tracking</a>
+		<a href="audit_report.html">Audit Report</a>
+    </div>
+<h2>Data Transformation Monitor</h2>
+
+<table id="myData">
+  <tr class="header">
+    <th>Transformation</th>
+    <th>Input Data</th>
+    <th>Output Data</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>Feature Scaling</td>
+    <td>Raw Data</td>
+    <td>Scaled Data</td>
+    <td>In Progress</td>
+  </tr>
+  <tr>
+    <td>Data Imputation</td>
+    <td>Missing Values</td>
+    <td>Imputed Values</td>
+    <td>Complete</td>
+  </tr>
+  <tr>
+    <td>Data Normalization</td>
+    <td>Raw Data</td>
+    <td>Normalized Data</td>
+    <td>In Progress</td>
+  </tr>
+</table>
+
+</body>
+</html>

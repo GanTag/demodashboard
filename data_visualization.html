@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Machine Learning Interactive Dashboard</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+	    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            padding: 20px;
+            background: #f1f1f1;
+            text-align: center;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .side {
+            flex: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .main {
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .side,
+            .main {
+                width: 100%;
+            }
+        }
+    </style>
+<body>
+	    <div class="header">
+        <h1><a href="dash_sample_noLinks_v2.html">USBank ML MVP Dashboard</h1>
+    </div>
+    <div class="topnav">
+        <a href="DataIngestionMonitorGraph.html">Data Ingestion Monitor</a>
+        <a href="data_alerts.html">Alerts</a>
+        <a href="logging_stats.html">Logging</a>
+        <a href="audit_logging.html">Audit Logging</a>
+        <a href="data_visualization.html">Data Visualizations</a>
+		<a href="data_monitor.html">Data Monitor</a>
+        <a href="ml_model_performance_metrics.html">ML Model Performance Metrics</a>
+        <a href="model_deployment_tracking.html">Model Deployment Tracking</a>
+        <a href="automation_tracking.html">Automation Tracking</a>
+        <a href="pipeline_tracking.html">Pipeline Tracking</a>
+		<a href="audit_report.html">Audit Report</a>
+    </div>
+  <h1>Machine Learning Interactive Dashboard</h1>
+  <div id="data_source_one"></div>
+  <div id="data_source_two"></div>
+  <div id="data_source_three"></div>
+  <div id="data_source_four"></div>
+  <div id="data_source_five"></div>
+  <script>
+    Plotly.newPlot(
+      'data_source_one',
+      [{x: [1, 2, 3], y: [10, 15, 13], type: 'scatter'}],
+      {title: 'Data Source One'},
+    );
+    Plotly.newPlot(
+      'data_source_two',
+      [{x: [1, 2, 3], y: [16, 5, 11], type: 'scatter'}],
+      {title: 'Data Source Two'},
+    );
+    Plotly.newPlot(
+      'data_source_three',
+      [{x: [1, 2, 3], y: [12, 9, 15], type: 'scatter'}],
+      {title: 'Data Source Three'},
+    );
+    Plotly.newPlot(
+      'data_source_four',
+      [{x: [1, 2, 3], y: [8, 12, 3], type: 'scatter'}],
+      {title: 'Data Source Four'},
+    );
+    Plotly.newPlot(
+      'data_source_five',
+      [{x: [1, 2, 3], y: [6, 18, 9], type: 'scatter'}],
+      {title: 'Data Source Five'},
+    );
+  </script>
+</body>
+</html>

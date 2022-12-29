@@ -1,0 +1,197 @@
+
+<html>
+    <head>
+        <title>Audit Logging Dashboard</title>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+		    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            padding: 20px;
+            background: #f1f1f1;
+            text-align: center;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .side {
+            flex: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .main {
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .side,
+            .main {
+                width: 100%;
+            }
+        }
+    </style>
+    <body>
+    <div class="header">
+        <h1>USBank ML MVP Dashboard</h1>
+    </div>
+    <div class="topnav">
+        <a href="DataIngestionMonitorGraph.html">Data Ingestion Monitor</a>
+        <a href="data_alerts.html">Alerts</a>
+        <a href="logging_stats.html">Logging</a>
+        <a href="audit_logging.html">Audit Logging</a>
+        <a href="data_visualization.html">Data Visualizations</a>
+		<a href="data_monitor.html">Data Monitor</a>
+        <a href="ml_model_performance_metrics.html">ML Model Performance Metrics</a>
+        <a href="model_deployment_tracking.html">Model Deployment Tracking</a>
+        <a href="automation_tracking.html">Automation Tracking</a>
+        <a href="pipeline_tracking.html">Pipeline Tracking</a>
+		<a href="audit_report.html">Audit Report</a>
+    </div>
+       <div id="graph" style="width:100%;height:450px;"></div>
+
+  <div id="graph1"></div>
+  <div id="graph2"></div>
+  <div id="graph3"></div>
+  <div id="graph4"></div>
+  <div id="graph5"></div>
+
+<script>
+
+// Data Sources 
+// 1. Bar Chart
+var bar_x = ['A', 'B', 'C', 'D', 'E'];
+var bar_y = [20, 14, 23, 15, 25];
+
+// 2. Pie Chart 
+var pie_labels = ['A','B','C','D','E'];
+var pie_values = [20, 14, 23, 15, 25];
+
+// 3. Scatter Plot
+var scatter_x = [1, 2, 3, 4, 5];
+var scatter_y = [10, 15, 13, 17, 20];
+
+// 4. Bubble Chart
+var bubble_x = [1, 2, 3, 4, 5];
+var bubble_y = [10, 15, 13, 17, 20];
+var bubble_sizes = [15, 30, 45, 60, 75]
+
+// 5. Line Chart
+var line_x = [1, 2, 3, 4, 5];
+var line_y = [10, 15, 13, 17, 20];
+
+// Bar Chart 
+var bar_data = [
+  {
+    x: bar_x,
+    y: bar_y,
+	name: 'Ingested Data in Bulk',
+	title: 'Bar',
+    type: 'bar'
+  }
+];
+
+// Pie Chart
+var pie_data = [
+  {
+    values: pie_values,
+    labels: pie_labels,
+    type: 'pie'
+  }
+];
+
+// Scatter Plot
+var scatter_data = [
+  {
+    x: scatter_x,
+    y: scatter_y,
+    mode: 'markers',
+    type: 'scatter'
+  }
+];
+
+// Bubble Chart
+var bubble_data = [
+  {
+    x: bubble_x,
+    y: bubble_y,
+    mode: 'markers',
+    marker: {
+      size: bubble_sizes
+    },
+    type: 'scatter'
+  }
+];
+
+// Line Chart
+var line_data = [
+  {
+    x: line_x,
+    y: line_y,
+    type: 'scatter'
+  }
+];
+
+// Render Plots
+Plotly.newPlot('graph', bar_data,{title: 'Data Logging in Batches'});
+Plotly.newPlot('graph1', pie_data,{title: 'Data Logging by %'});
+Plotly.newPlot('graph2', scatter_data,{title: 'Data Log for Lost Data'});
+Plotly.newPlot('graph3', bubble_data,{title: 'Data Audit '});
+Plotly.newPlot('graph4', line_data,{title: 'Data Logging for POI negative'});
+</script>
+    </body>
+</html>

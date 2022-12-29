@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>ML Model Performance Monitor</title>
+<style>
+.chart {
+    width: 100%;
+    height: 400px;
+}
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            padding: 20px;
+            background: #f1f1f1;
+            text-align: center;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .side {
+            flex: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .main {
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .side,
+            .main {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>USBank ML MVP Dashboard</h1>
+    </div>
+    <div class="topnav">
+        <a href="DataIngestionMonitorGraph.html">Data Ingestion Monitor</a>
+        <a href="data_alerts.html">Alerts</a>
+        <a href="logging_stats.html">Logging</a>
+        <a href="audit_logging.html">Audit Logging</a>
+        <a href="data_visualization.html">Data Visualizations</a>
+		<a href="data_monitor.html">Data Monitor</a>
+        <a href="ml_model_performance_metrics.html">ML Model Performance Metrics</a>
+        <a href="model_deployment_tracking.html">Model Deployment Tracking</a>
+        <a href="automation_tracking.html">Automation Tracking</a>
+        <a href="pipeline_tracking.html">Pipeline Tracking</a>
+    </div>
+<h1>ML Model Performance Monitor</h1>
+<h2>Model Performance over Time</h2>
+<div class="chart" id="chart1"></div>
+<h2>Model Insights</h2>
+<div class="chart" id="chart2"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart1);
+google.charts.setOnLoadCallback(drawChart2);
+
+function drawChart1() {
+  var data = google.visualization.arrayToDataTable([
+    ['Month', 'Accuracy'],
+    ['Jan', 0.8],
+    ['Feb', 0.85],
+    ['Mar', 0.9],
+    ['Apr', 0.92],
+    ['May', 0.94],
+    ['Jun', 0.95],
+    ['Jul', 0.96],
+    ['Aug', 0.97],
+    ['Sep', 0.98],
+    ['Oct', 0.99],
+    ['Nov', 0.99],
+    ['Dec', 0.99]
+  ]);
+
+  var options = {
+    title: 'Model Performance over Time',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('chart1'));
+
+  chart.draw(data, options);
+}
+
+function drawChart2() {
+  var data = google.visualization.arrayToDataTable([
+    ['Model', 'Accuracy'],
+    ['Decision Tree', 0.8],
+    ['SVM', 0.88],
+    ['Random Forest', 0.94],
+    ['Neural Network', 0.99],
+  ]);
+
+  var options = {
+    title: 'Model Insights',
+    legend: { position: 'bottom' }
+  };
+
+  var chart = new google.visualization.BarChart(document.getElementById('chart2'));
+
+  chart.draw(data, options);
+}
+
+</script>
+</body>
+</html>

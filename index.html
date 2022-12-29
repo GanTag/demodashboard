@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>USBank Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            padding: 20px;
+            background: #f1f1f1;
+            text-align: center;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .side {
+            flex: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .main {
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .side,
+            .main {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>USBank ML MVP Dashboard</h1>
+    </div>
+    <div class="topnav">
+        <a href="DataIngestionMonitorGraph.html">Data Ingestion Monitor</a>
+        <a href="data_alerts.html">Alerts</a>
+        <a href="logging_stats.html">Logging</a>
+        <a href="audit_logging.html">Audit Logging</a>
+        <a href="data_visualization.html">Data Visualizations</a>
+		<a href="data_monitor.html">Data Monitor</a>
+        <a href="ml_model_performance_metrics.html">ML Model Performance Metrics</a>
+        <a href="model_deployment_tracking.html">Model Deployment Tracking</a>
+        <a href="automation_tracking.html">Automation Tracking</a>
+        <a href="pipeline_tracking.html">Pipeline Tracking</a>
+		<a href="audit_report.html">Audit Report</a>
+    </div>
+    <div class="row">
+        <div class="side">
+            <h2>Data Ingestion Monitor</h2>
+            <p>The Comprehensive overview of the data that is collected by USBank. It includes a graphical view of the ingested data as well as created tables that provide a more detailed view.</p>
+        </div>
+        <div class="main">
+            <h2>Alerts</h2>
+            <p>Notifications when certain thresholds are exceeded or when certain data points change. This page provides a comprehensive view of all alerts and allows the user to create new alerts.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="side">
+            <h2>Logging</h2>
+            <p>View of all the logging data that is collected by USBank. This includes detailed information about all the transactions and events that have taken place.</p>
+        </div>
+        <div class="main">
+            <h2>Audit Logging</h2>
+            <p>All the audit data that is collected by USBank. This data provides a detailed view of all the changes that have been made to the data.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="side">
+            <h2>Data Visualizations</h2>
+            <p>Graphical representations of the data that make it easier to visualize trends and patterns.</p>
+        </div>
+        <div class="main">
+            <h2>ML Model Performance Metrics</h2>
+            <p>The ML Model Performance MetricsS of all the Machine Learning models that are used by USBank. This page provides a detailed view of the accuracy and other performance metrics of the models.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="side">
+            <h2>Model Deployment Tracking</h2>
+            <p>Detailed view of all the models that have been deployed by USBank. This page provides a comprehensive view of the model deployments and their performance over time.</p>
+        </div>
+        <div class="main">
+            <h2>Automation Tracking</h2>
+            <p>Automation processes  provides a detailed view of the automation processes and their performance over time.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="side">
+            <h2>Pipeline Tracking</h2>
+            <p>Data pipelines and their performance over time.</p>
+        </div>
+		        <div class="main">
+            <h2>Data Monitor</h2>
+            <p>Data monitoring component displays the current data values for each metric.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright © 2020 USBank</p>
+    </div>
+</body>
+
+</html>
